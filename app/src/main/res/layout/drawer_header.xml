@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/height_header_drawer"
+    android:gravity="bottom|left"
+    android:background="@color/primaryColorDark"
+    android:paddingLeft="@dimen/padding_left_drawer"
+    android:paddingTop="@dimen/padding_top_drawer"
+    android:paddingRight="@dimen/padding_right_drawer">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_menu_items_drawer"
+        android:gravity="center|left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView"
+            android:textColor="@color/primaryTextColorTitle" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!--Drawer dimens-->
+    <dimen name="height_header_drawer">192dp</dimen>
+    <dimen name="height_menu_items_drawer">48dp</dimen>
+    <dimen name="space_between_areas_drawer">8dp</dimen>
+    <dimen name="navigation_right_margin_drawer">56dp</dimen>
+    <dimen name="padding_left_drawer">16dp</dimen>
+    <dimen name="padding_right_drawer">16dp</dimen>
+    <dimen name="padding_top_drawer">16dp</dimen>
+    <dimen name="width_icon_layout_drawer">56dp</dimen>
+
+    <!--Floating button-->
+    <dimen name="margin_floating_button">16dp</dimen>
+
+
+</resources>
