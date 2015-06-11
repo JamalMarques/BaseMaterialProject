@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ExampleFragment exFragment = ExampleFragment.getInstance();
-        changeFragment(exFragment, exFragment.getFragmentTag());
+        changeFragment(exFragment, exFragment.getFragmentTag(),false);
 
     }
 
@@ -95,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeFragment(Fragment frag,String tag){
+    public void changeFragment(Fragment frag,String tag,boolean addToBackStack){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameMainLayout, frag);
-        fragmentTransaction.addToBackStack(tag);
+        if(addToBackStack){ fragmentTransaction.addToBackStack(tag); }
         fragmentTransaction.commit();
     }
 
