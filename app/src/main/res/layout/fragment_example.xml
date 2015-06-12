@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_done"/>
+        android:src="@drawable/ic_done"
+        app:borderWidth="0dp"/>
         <!--app:borderWidth="1dp"-->
 
 </android.support.design.widget.CoordinatorLayout>

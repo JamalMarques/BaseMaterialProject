@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -63,8 +64,9 @@ public class ExampleFragment extends BaseFragment {
         linearLM.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLM);
 
-        SmartphonesAdapter adapter = new SmartphonesAdapter(generateDummyData());
+        SmartphonesAdapter adapter = new SmartphonesAdapter(generateDummyData(),getActivity());
         recyclerView.setAdapter(adapter);
+
 
         return view;
     }
@@ -80,6 +82,16 @@ public class ExampleFragment extends BaseFragment {
         SmartPhone as8 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
         SmartPhone as9 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
         SmartPhone as10 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as11 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as12 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as13 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as14 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as15 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as16 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as17 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as18 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as19 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as20 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
         List<SmartPhone> list = new ArrayList<>();
         list.add(as1);
         list.add(as2);
@@ -91,6 +103,16 @@ public class ExampleFragment extends BaseFragment {
         list.add(as8);
         list.add(as9);
         list.add(as10);
+        list.add(as11);
+        list.add(as12);
+        list.add(as13);
+        list.add(as14);
+        list.add(as15);
+        list.add(as16);
+        list.add(as17);
+        list.add(as18);
+        list.add(as19);
+        list.add(as20);
         return list;
     }
 
