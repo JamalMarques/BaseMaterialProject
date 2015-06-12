@@ -76,7 +76,7 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
             tvValue = (TextView)v.findViewById(R.id.tv_text3);
             main_view = (View)v.findViewById(R.id.main_view);
 
-            v.setOnClickListener(this);
+            main_view.setOnClickListener(this);
         }
 
         public void setOnClickListener(View.OnClickListener mListener){
