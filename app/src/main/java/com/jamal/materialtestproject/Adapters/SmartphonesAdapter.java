@@ -1,21 +1,17 @@
 package com.jamal.materialtestproject.Adapters;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.media.Image;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
@@ -32,10 +28,12 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
     private List<SmartPhone> smartPhonesList;
     private int lastPosition = -1;
     private Context context;
+    private static RecyclerViewClickListener clickListener;
 
-    public SmartphonesAdapter(List<SmartPhone> smartPhones,Context context){
+    public SmartphonesAdapter(List<SmartPhone> smartPhones,Context context,RecyclerViewClickListener recyclerViewClickListener){
         this.smartPhonesList = smartPhones;
         this.context = context;
+        this.clickListener = recyclerViewClickListener;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
 
     @Override
     public void onBindViewHolder(SmartphonesViewHolder smartphonesViewHolder, final int position) {
-        SmartPhone smartPhone = smartPhonesList.get(position);
+        final SmartPhone smartPhone = smartPhonesList.get(position);
         smartphonesViewHolder.tvModel.setText(smartPhone.getModel());
         smartphonesViewHolder.tvValue.setText("$"+smartPhone.getValue());
         smartphonesViewHolder.tvOS.setText(smartPhone.getOperativeSystem());
@@ -73,14 +71,7 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
         Picasso.with(context).load(resource)
                              .into(smartphonesViewHolder.img);
 
-        smartphonesViewHolder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(context,"Pos: "+position, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        setAnimation(smartphonesViewHolder.main_view, position);
+        setAnimation(smartphonesViewHolder.cardView, position);
     }
 
 
@@ -88,8 +79,8 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
 
         protected TextView tvModel,tvValue,tvOS;
         protected View main_view;
-        protected View.OnClickListener mListener;
         protected ImageView img;
+        protected CardView cardView;
 
         public SmartphonesViewHolder(View v) {
             super(v);
@@ -98,17 +89,14 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
             tvValue = (TextView)v.findViewById(R.id.tv_text3);
             main_view = (View)v.findViewById(R.id.main_view);
             img = (ImageView)v.findViewById(R.id.img);
+            cardView = (CardView)v.findViewById(R.id.card_view);
 
             main_view.setOnClickListener(this);
         }
 
-        public void setOnClickListener(View.OnClickListener mListener){
-            this.mListener = mListener;
-        }
-
         @Override
         public void onClick(View v) {
-            mListener.onClick(v);
+            clickListener.recyclerViewListClicked(v,getLayoutPosition());
         }
     }
 

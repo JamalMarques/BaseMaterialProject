@@ -10,8 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
+import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
@@ -19,7 +21,7 @@ import com.jamal.materialtestproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExampleFragment extends BaseFragment {
+public class ExampleFragment extends BaseFragment implements RecyclerViewClickListener{
 
     public static final String TAG = "ExampleFragment";
     private FloatingActionButton floatingButton;
@@ -58,11 +60,17 @@ public class ExampleFragment extends BaseFragment {
         linearLM.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLM);
 
-        SmartphonesAdapter adapter = new SmartphonesAdapter(generateDummyData(),getActivity());
+        SmartphonesAdapter adapter = new SmartphonesAdapter(generateDummyData(),getActivity(),this);
         recyclerView.setAdapter(adapter);
 
 
         return view;
+    }
+
+
+    @Override
+    public void recyclerViewListClicked(View v, int position) {
+        Toast.makeText(getActivity(),"Touched:"+position,Toast.LENGTH_SHORT).show();
     }
 
     private List<SmartPhone> generateDummyData(){
