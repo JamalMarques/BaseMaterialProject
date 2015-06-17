@@ -2,28 +2,22 @@ package com.jamal.materialtestproject.Fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
 import com.jamal.materialtestproject.Models.SmartPhone;
+import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class ExampleFragment extends BaseFragment {
 
@@ -72,26 +66,26 @@ public class ExampleFragment extends BaseFragment {
     }
 
     private List<SmartPhone> generateDummyData(){
-        SmartPhone as1 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as2 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as3 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as4 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as5 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as6 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as7 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as8 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as9 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as10 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as11 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as12 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as13 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as14 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as15 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as16 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as17 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as18 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as19 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
-        SmartPhone as20 = new SmartPhone("Nexus 6",500.00,"5.0 Lollipop");
+        SmartPhone as1 = new SmartPhone("Nexus 6",500.00,"5.1.1 Lollipop", Constants.OS_ANDROID);
+        SmartPhone as2 = new SmartPhone("Nexus 5",500.00,"5.1.1 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as3 = new SmartPhone("Nexus 4",500.00,"5.1.1 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as4 = new SmartPhone("Iphone 6 plus",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as5 = new SmartPhone("Iphone 6",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as6 = new SmartPhone("Iphone 5s",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as7 = new SmartPhone("Iphone 5",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as8 = new SmartPhone("Nexus 4s",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as9 = new SmartPhone("Nexus 4",500.00,"iOS 8",Constants.OS_IOS);
+        SmartPhone as10 = new SmartPhone("Galaxy s6 edge",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as11 = new SmartPhone("Galaxy s6",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as12 = new SmartPhone("Galaxy s5",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as13 = new SmartPhone("Galaxy s4",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as14 = new SmartPhone("Moto X 2gen",500.00,"5.1 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as15 = new SmartPhone("Moto X",500.00,"4.4 Kitkat",Constants.OS_ANDROID);
+        SmartPhone as16 = new SmartPhone("Moto G 2gen",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as17 = new SmartPhone("Sony Z4",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as18 = new SmartPhone("HTC One M9",500.00,"5.0 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as19 = new SmartPhone("Nexus 7",500.00,"5.1.1 Lollipop",Constants.OS_ANDROID);
+        SmartPhone as20 = new SmartPhone("Nexus 9",500.00,"5.1.1 Lollipop",Constants.OS_ANDROID);
         List<SmartPhone> list = new ArrayList<>();
         list.add(as1);
         list.add(as2);

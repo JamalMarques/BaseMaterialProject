@@ -5,7 +5,7 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:stateListAnimator="@anim/card_anim"
+    android:stateListAnimator="@anim/magnetic_anim"
     android:id="@+id/main_view">
 
     <LinearLayout

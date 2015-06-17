@@ -8,11 +8,13 @@ public class SmartPhone {
     private String model;
     private Double value;
     private String operativeSystem;
+    private int OS;
 
-    public SmartPhone(String model,Double value,String operativeSystem){
+    public SmartPhone(String model,Double value,String operativeSystem,int OS){
         this.setModel(model);
         this.setValue(value);
         this.setOperativeSystem(operativeSystem);
+        this.setOS(OS);
     }
 
 
@@ -38,5 +40,13 @@ public class SmartPhone {
 
     public void setOperativeSystem(String operativeSystem) {
         this.operativeSystem = operativeSystem;
+    }
+
+    public int getOS() {
+        return OS;
+    }
+
+    public void setOS(int OS) {
+        this.OS = OS;
     }
 }
