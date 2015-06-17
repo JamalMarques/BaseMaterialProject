@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import com.jamal.materialtestproject.R;
 
 
-public class SecondActivity extends ActionBarActivity {
+public class SecondActivity extends MasterActivity {
 
     private Toolbar toolbar;
 
