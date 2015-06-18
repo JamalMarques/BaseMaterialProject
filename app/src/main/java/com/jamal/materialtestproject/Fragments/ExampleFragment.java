@@ -1,6 +1,7 @@
 package com.jamal.materialtestproject.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.jamal.materialtestproject.Activities.DetailFlow.DeviceDetailActivity;
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
 import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
@@ -26,6 +29,7 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
     public static final String TAG = "ExampleFragment";
     private FloatingActionButton floatingButton;
     private RecyclerView recyclerView;
+    private List<SmartPhone> smartPhoneList;
 
 
     public String getFragmentTag(){
@@ -52,7 +56,9 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
             }
         });
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("hellohello");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Devices");
+
+        smartPhoneList = generateDummyData();
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerList);
         recyclerView.setHasFixedSize(true);
@@ -60,7 +66,7 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
         linearLM.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLM);
 
-        SmartphonesAdapter adapter = new SmartphonesAdapter(generateDummyData(),getActivity(),this);
+        SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhoneList,getActivity(),this);
         recyclerView.setAdapter(adapter);
 
 
@@ -70,7 +76,10 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
 
     @Override
     public void recyclerViewListClicked(View v, int position) {
-        Toast.makeText(getActivity(),"Touched:"+position,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+        String jsonDevice = (new Gson()).toJson(smartPhoneList.get(position));
+        intent.putExtra(Constants.JSON_DEVICE,jsonDevice);
+        startActivity(intent);
     }
 
     private List<SmartPhone> generateDummyData(){
