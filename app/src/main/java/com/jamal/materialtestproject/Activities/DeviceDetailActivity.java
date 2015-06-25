@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,6 +22,7 @@ import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Type;
 
@@ -29,6 +31,7 @@ public class DeviceDetailActivity extends MasterActivity {
     private Toolbar toolbar;
     private SmartPhone device;
     private Button button1,buttonTouch;
+    private ImageView imag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,10 @@ public class DeviceDetailActivity extends MasterActivity {
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(device.getModel());
 
+
+
+        imag = (ImageView)findViewById(R.id.backimg);
+        Picasso.with(this).load(R.drawable.ic_android_1).into(imag);
 
         button1 = (Button)findViewById(R.id.button);
         buttonTouch = (Button)findViewById(R.id.touchit);
