@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +15,7 @@ import com.jamal.materialtestproject.Fragments.ExampleFragment;
 import com.jamal.materialtestproject.R;
 
 
-public class MainDrawerActivity extends AppCompatActivity {
+public class MainDrawerActivity extends MasterActivity {
 
     private Toolbar toolbar;
 
@@ -83,11 +82,12 @@ public class MainDrawerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void changeFragment(Fragment frag,String tag,boolean addToBackStack){
+
+    @Override
+    public void changeFragment(Fragment fragment, String tag, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frameMainLayout, frag);
+        fragmentTransaction.replace(R.id.frameMainLayout, fragment);
         if(addToBackStack){ fragmentTransaction.addToBackStack(tag); }
         fragmentTransaction.commit();
     }
-
 }

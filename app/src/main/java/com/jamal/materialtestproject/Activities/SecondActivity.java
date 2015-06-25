@@ -1,5 +1,6 @@
 package com.jamal.materialtestproject.Activities;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -43,5 +44,10 @@ public class SecondActivity extends MasterActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void changeFragment(Fragment fragment, String tag, boolean addToBackStack) {
+        //Empty
     }
 }

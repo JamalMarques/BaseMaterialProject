@@ -21,7 +21,7 @@
             android:label="@string/title_activity_second" >
         </activity>
         <activity
-            android:name=".Activities.DetailFlow.DeviceDetailActivity"
+            android:name=".Activities.DeviceDetailActivity"
             android:label="@string/title_activity_device_detail" >
         </activity>
     </application>
