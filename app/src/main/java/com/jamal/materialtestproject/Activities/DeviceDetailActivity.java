@@ -3,6 +3,7 @@ package com.jamal.materialtestproject.Activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,10 +35,6 @@ public class DeviceDetailActivity extends MasterActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_detail);
 
-        toolbar = (Toolbar)findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         if(getIntent().getExtras() != null) {
             if(getIntent().getExtras().getString(Constants.JSON_DEVICE) != null) {
                 String smartphoneJson = getIntent().getExtras().getString(Constants.JSON_DEVICE);
@@ -46,6 +43,14 @@ public class DeviceDetailActivity extends MasterActivity {
                 device = (SmartPhone) gson.fromJson(smartphoneJson,type);
             }
         }
+
+        toolbar = (Toolbar)findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle(device.getModel());
+
 
         button1 = (Button)findViewById(R.id.button);
         buttonTouch = (Button)findViewById(R.id.touchit);
