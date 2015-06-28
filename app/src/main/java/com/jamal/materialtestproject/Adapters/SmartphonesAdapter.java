@@ -36,6 +36,10 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
         this.clickListener = recyclerViewClickListener;
     }
 
+    public SmartPhone getItem(int position){
+        return smartPhonesList.get(position);  //Important to add to the adapter
+    }
+
     @Override
     public int getItemCount() {
         return smartPhonesList.size();
@@ -75,7 +79,7 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
     }
 
 
-    public static class SmartphonesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class SmartphonesViewHolder extends RecyclerView.ViewHolder{
 
         protected TextView tvModel,tvValue,tvOS;
         protected View main_view;
@@ -91,12 +95,12 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
             img = (ImageView)v.findViewById(R.id.img);
             cardView = (CardView)v.findViewById(R.id.card_view);
 
-            main_view.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.recyclerViewListClicked(v,getLayoutPosition());
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickListener.recyclerViewListClicked(v,getLayoutPosition());
+                }
+            });
         }
     }
 

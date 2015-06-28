@@ -25,7 +25,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/img"
                 android:src="@drawable/ic_android_1"
-                android:padding="3dp" />
+                android:padding="3dp"
+                android:transitionName="@string/transition_1"/>
+
         </LinearLayout>
 
         <LinearLayout

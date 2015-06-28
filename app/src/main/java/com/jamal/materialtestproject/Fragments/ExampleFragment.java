@@ -1,21 +1,30 @@
 package com.jamal.materialtestproject.Fragments;
 
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.CharacterPickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.jamal.materialtestproject.Activities.DetailFlow.DeviceDetailActivity;
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
+import com.jamal.materialtestproject.Adapters.SmartphonesListAdapter;
 import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
@@ -29,6 +38,7 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
     public static final String TAG = "ExampleFragment";
     private FloatingActionButton floatingButton;
     private RecyclerView recyclerView;
+    private ListView listview;
     private List<SmartPhone> smartPhoneList;
 
 
@@ -68,6 +78,23 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
 
         SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhoneList,getActivity(),this);
         recyclerView.setAdapter(adapter);
+        //Set on click listener in the adapter i think is better!! TODO
+
+        /*listview = (ListView)view.findViewById(R.id.listview);
+        listview.setAdapter(new SmartphonesListAdapter(getActivity(),0,generateDummyData()));
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+                String jsonDevice = (new Gson()).toJson(smartPhoneList.get(position));
+                intent.putExtra(Constants.JSON_DEVICE, jsonDevice);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                        new Pair<View, String>(view.findViewById(R.id.img),getString(R.string.transition_1)));
+                ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+            }
+        });*/
+
+
 
 
         return view;
@@ -76,10 +103,19 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
 
     @Override
     public void recyclerViewListClicked(View v, int position) {
+        //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),v.findViewById(R.id.img),getString(R.string.transition_1));
+        /*ActivityOptions options2 = ActivityOptions.makeSceneTransitionAnimation(getActivity(), v.findViewById(R.id.img), getString(R.string.transition_1));
         Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
         String jsonDevice = (new Gson()).toJson(smartPhoneList.get(position));
-        intent.putExtra(Constants.JSON_DEVICE,jsonDevice);
-        startActivity(intent);
+        intent.putExtra(Constants.JSON_DEVICE, jsonDevice);
+        ActivityCompat.startActivity(getActivity(),intent,options2.toBundle());*/
+        Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+        String jsonDevice = (new Gson()).toJson(smartPhoneList.get(position));
+        intent.putExtra(Constants.JSON_DEVICE, jsonDevice);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                new Pair<View, String>(v.findViewById(R.id.img),getString(R.string.transition_1)));
+        ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+
     }
 
     private List<SmartPhone> generateDummyData(){

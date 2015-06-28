@@ -13,5 +13,7 @@
     <string name="snackbar_example">This is a snackbar example</string>
     <string name="title_activity_device_detail">DeviceDetailActivity</string>
 
+    <!-- Transitions -->
+    <string name="transition_1">transition_one</string>
 
 </resources>
