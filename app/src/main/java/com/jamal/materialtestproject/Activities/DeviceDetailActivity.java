@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +33,7 @@ public class DeviceDetailActivity extends MasterActivity {
     private SmartPhone device;
     private Button button1,buttonTouch;
     private ImageView imag;
+    private NestedScrollView nestedScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +55,6 @@ public class DeviceDetailActivity extends MasterActivity {
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(device.getModel());
-
-
 
         imag = (ImageView)findViewById(R.id.backimg);
         Picasso.with(this).load(R.drawable.ic_android_1).into(imag);
