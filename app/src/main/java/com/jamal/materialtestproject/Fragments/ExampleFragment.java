@@ -15,14 +15,14 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.jamal.materialtestproject.Activities.DeviceDetailActivity;
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
-import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
+import com.jamal.materialtestproject.Listeners.RecyclerViewListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
 
 import java.util.ArrayList;
 
-public class ExampleFragment extends BaseFragment implements RecyclerViewClickListener{
+public class ExampleFragment extends BaseFragment {
 
     public static final String TAG = "ExampleFragment";
     private FloatingActionButton floatingButton;
@@ -63,19 +63,19 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
         recyclerView.setLayoutManager(linearLM);
 
         smartPhonesList = generateDummyData();
-        SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhonesList,getActivity(),this);
+        SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhonesList,getActivity());
+        adapter.setRecyclerListener(new RecyclerViewListener() {
+            @Override
+            public void recyclerViewItemClicked(View v, int position) {
+                Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+                intent.putExtra(Constants.JSON_DEVICE,new Gson().toJson(smartPhonesList.get(position)));
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(adapter);
 
 
         return view;
-    }
-
-
-    @Override
-    public void recyclerViewListClicked(View v, int position) {
-        Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
-        intent.putExtra(Constants.JSON_DEVICE,new Gson().toJson(smartPhonesList.get(position)));
-        startActivity(intent);
     }
 
     private ArrayList<SmartPhone> generateDummyData(){

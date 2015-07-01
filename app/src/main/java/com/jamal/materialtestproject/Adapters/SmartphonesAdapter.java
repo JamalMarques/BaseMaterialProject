@@ -11,7 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jamal.materialtestproject.Listeners.RecyclerViewClickListener;
+import com.jamal.materialtestproject.Listeners.RecyclerViewListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
@@ -28,12 +28,15 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
     private List<SmartPhone> smartPhonesList;
     private int lastPosition = -1;
     private Context context;
-    private static RecyclerViewClickListener clickListener;
+    private RecyclerViewListener listener;
 
-    public SmartphonesAdapter(List<SmartPhone> smartPhones,Context context,RecyclerViewClickListener recyclerViewClickListener){
+    public SmartphonesAdapter(List<SmartPhone> smartPhones,Context context){
         this.smartPhonesList = smartPhones;
         this.context = context;
-        this.clickListener = recyclerViewClickListener;
+    }
+
+    public void setRecyclerListener(RecyclerViewListener listener){
+        this.listener = listener;
     }
 
     @Override
@@ -44,7 +47,7 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
     @Override
     public SmartphonesViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_layout,viewGroup, false);
-        return new SmartphonesViewHolder(itemView);
+        return new SmartphonesViewHolder(itemView,listener);
     }
 
     @Override
@@ -75,14 +78,14 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
     }
 
 
-    public static class SmartphonesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class SmartphonesViewHolder extends RecyclerView.ViewHolder{
 
         protected TextView tvModel,tvValue,tvOS;
         protected View main_view;
         protected ImageView img;
         protected CardView cardView;
 
-        public SmartphonesViewHolder(View v) {
+        public SmartphonesViewHolder(View v, final RecyclerViewListener rListener) {
             super(v);
             tvModel = (TextView)v.findViewById(R.id.tv_text1);
             tvOS = (TextView)v.findViewById(R.id.tv_text2);
@@ -91,12 +94,14 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
             img = (ImageView)v.findViewById(R.id.img);
             cardView = (CardView)v.findViewById(R.id.card_view);
 
-            main_view.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.recyclerViewListClicked(v,getLayoutPosition());
+            if(rListener != null) {
+                main_view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        rListener.recyclerViewItemClicked(v, getLayoutPosition());
+                    }
+                });
+            }
         }
     }
 
