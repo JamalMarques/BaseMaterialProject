@@ -39,6 +39,11 @@ public class SmartphonesAdapter extends RecyclerView.Adapter<SmartphonesAdapter.
         this.listener = listener;
     }
 
+    public void removeItem(int position){
+        smartPhonesList.remove(position);
+        notifyItemRemoved(position);
+    }
+
     @Override
     public int getItemCount() {
         return smartPhonesList.size();

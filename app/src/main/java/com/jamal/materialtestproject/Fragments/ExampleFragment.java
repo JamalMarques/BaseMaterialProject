@@ -8,9 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.jamal.materialtestproject.Activities.DeviceDetailActivity;
@@ -63,7 +65,7 @@ public class ExampleFragment extends BaseFragment {
         recyclerView.setLayoutManager(linearLM);
 
         smartPhonesList = generateDummyData();
-        SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhonesList,getActivity());
+        final SmartphonesAdapter adapter = new SmartphonesAdapter(smartPhonesList,getActivity());
         adapter.setRecyclerListener(new RecyclerViewListener() {
             @Override
             public void recyclerViewItemClicked(View v, int position) {
@@ -74,6 +76,22 @@ public class ExampleFragment extends BaseFragment {
         });
         recyclerView.setAdapter(adapter);
 
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                Toast.makeText(getActivity(),"ON MOVE!",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                int position = viewHolder.getAdapterPosition();
+                adapter.removeItem(position);
+                //Toast.makeText(getActivity(),"swiped!",Toast.LENGTH_SHORT).show();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         return view;
     }

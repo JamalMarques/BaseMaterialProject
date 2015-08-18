@@ -57,7 +57,13 @@ public class DeviceDetailActivity extends MasterActivity {
         collapsingToolbar.setTitle(device.getModel());
 
         imag = (ImageView)findViewById(R.id.backimg);
-        Picasso.with(this).load(R.drawable.ic_android_1).into(imag);
+        int resource;
+        if(device.getOS() == Constants.OS_ANDROID){
+            resource = R.drawable.ic_android_1;
+        }else{
+            resource = R.drawable.ic_apple_logo;
+        }
+        Picasso.with(this).load(resource).into(imag);
 
         button1 = (Button)findViewById(R.id.button);
         buttonTouch = (Button)findViewById(R.id.touchit);
