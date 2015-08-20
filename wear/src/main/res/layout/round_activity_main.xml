@@ -6,4 +6,22 @@
     <TextView android:id="@+id/text" android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" android:text="@string/hello_round" />
+
+    <android.support.wearable.view.CircularButton
+        android:id="@+id/asd"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <android.support.wearable.view.CardScrollView
+        android:id="@+id/asd2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/white" />
+
 </RelativeLayout>
