@@ -112,9 +112,10 @@ public class ExampleFragment extends BaseFragment implements RecyclerViewClickLi
         Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
         String jsonDevice = (new Gson()).toJson(smartPhoneList.get(position));
         intent.putExtra(Constants.JSON_DEVICE, jsonDevice);
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
-                new Pair<View, String>(v.findViewById(R.id.img),getString(R.string.transition_1)));
-        ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+        //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+        //        new Pair<View, String>(v.findViewById(R.id.img),getString(R.string.transition_1)));
+        //ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+        startActivity(intent);
 
     }
 

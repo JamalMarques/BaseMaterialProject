@@ -16,7 +16,7 @@ import com.jamal.materialtestproject.Fragments.ExampleFragment;
 import com.jamal.materialtestproject.R;
 
 
-public class MainDrawerActivity extends AppCompatActivity {
+public class MainDrawerActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
 
