@@ -10,4 +10,5 @@ public class Constants {
     public static final int OS_WINDOWS_MOBILE = 2;
 
     public static final String JSON_DEVICE = "JSON_DEVICE";
+
 }
