@@ -8,41 +8,10 @@
     tools:deviceIds="wear_round"
     android:gravity="center">
 
-    <android.support.wearable.view.GridViewPager
-        android:id="@+id/card_scroll_view"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        app:layout_box="bottom">
-
-    <android.support.wearable.view.CardFrame
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_box="bottom">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Title"
-                android:textColor="@color/black"
-                android:id="@+id/textView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="This is a text showed as an example"
-                android:textColor="@color/black"/>
-
-
-        </LinearLayout>
-
-    </android.support.wearable.view.CardFrame>
-
-    </android.support.wearable.view.GridViewPager>
+   <android.support.wearable.view.GridViewPager
+       android:id="@+id/gridViewPager"
+       android:layout_height="match_parent"
+       android:layout_width="match_parent"
+       android:keepScreenOn="true"/>
 
 </LinearLayout>
