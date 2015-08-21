@@ -25,7 +25,11 @@ public class MainActivity extends Activity {
                 pager = (GridViewPager)stub.findViewById(R.id.gridViewPager);
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (pager != null){
             /*pager.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
                 @Override

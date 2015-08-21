@@ -41,7 +41,7 @@ public class SimpleGridPageAdapter extends FragmentGridPagerAdapter {
     LruCache<Integer, Drawable> rowBackgrounds = new LruCache<Integer, Drawable>(3) {
         @Override
         protected Drawable create(final Integer row) {
-            int resid = BG_IMAGES[row % BG_IMAGES.length];
+            int resid = BG_IMAGES[row /*% BG_IMAGES.length*/];
             new DrawableLoadingTask(context) {
                 @Override
                 protected void onPostExecute(Drawable result) {
