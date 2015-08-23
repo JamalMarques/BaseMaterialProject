@@ -41,7 +41,7 @@ public class SimpleGridPageAdapter extends FragmentGridPagerAdapter {
     LruCache<Integer, Drawable> rowBackgrounds = new LruCache<Integer, Drawable>(3) {
         @Override
         protected Drawable create(final Integer row) {
-            int resid = BG_IMAGES[row /*% BG_IMAGES.length*/];
+            int resid = BG_IMAGES[row % BG_IMAGES.length];
             new DrawableLoadingTask(context) {
                 @Override
                 protected void onPostExecute(Drawable result) {
@@ -57,18 +57,34 @@ public class SimpleGridPageAdapter extends FragmentGridPagerAdapter {
     LruCache<Point, Drawable> pageBackgrounds = new LruCache<Point, Drawable>(3){
         @Override
         protected Drawable create(final Point page) {
-            if ( (page.y == 2) && (page.x == 1) ){
-                int resid = R.mipmap.ic_launcher;
-                new DrawableLoadingTask(context){
-                    @Override
-                    protected void onPostExecute(Drawable result) {
-                        TransitionDrawable background = new TransitionDrawable(new Drawable[]{clearBg,result});
-                        pageBackgrounds.put(page,background);
-                        notifyPageBackgroundChanged( page.y, page.x);
-                        background.startTransition(TRANSITION_DURATION_MILLIS);
-                    }
-                }.execute(resid);
+            int resid;
+            switch (page.y){
+                case 1:
+                    resid = BG_IMAGES[1];
+                    break;
+                case 2:
+                    resid = BG_IMAGES[2];
+                    break;
+                case 3:
+                    resid = BG_IMAGES[3];
+                    break;
+                case 4:
+                    resid = BG_IMAGES[4];
+                    break;
+                default:
+                    resid = BG_IMAGES[0];
+                    break;
             }
+            new DrawableLoadingTask(context){
+                @Override
+                protected void onPostExecute(Drawable result) {
+                    TransitionDrawable background = new TransitionDrawable(new Drawable[]{clearBg,result});
+                    pageBackgrounds.put(page,background);
+                    notifyPageBackgroundChanged( page.y, page.x);
+                    background.startTransition(TRANSITION_DURATION_MILLIS);
+                }
+            }.execute(resid);
+
             return GridPagerAdapter.BACKGROUND_NONE;
         }
     };
@@ -86,7 +102,7 @@ public class SimpleGridPageAdapter extends FragmentGridPagerAdapter {
         clearBg = new ColorDrawable(context.getResources().getColor(android.R.color.transparent));
 
         rows = new ArrayList<Row>();
-        rows.add(new Row(createCardFragment("First card","This is the text of the first card == Here we can put the page details that is contained in a new page. This will be showed swipong to left == Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left")));
+        rows.add(new Row(createCardFragment("First card","This is the text of the first card")));
         rows.add(new Row(CustomPageFragment.getInstance("Second card", "This is a custom page used in the app", R.mipmap.ic_launcher)));
         rows.add(new Row(CustomPageFragment.getInstance("Third card", "This is a custom page used in the app", R.mipmap.ic_launcher),
                          CustomPageFragment.getInstance("Page details","Here we can put the page details that is contained in a new page. This will be showed swipong to left == Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left",R.mipmap.ic_launcher)));
