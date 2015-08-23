@@ -86,10 +86,10 @@ public class SimpleGridPageAdapter extends FragmentGridPagerAdapter {
         clearBg = new ColorDrawable(context.getResources().getColor(android.R.color.transparent));
 
         rows = new ArrayList<Row>();
-        rows.add(new Row(createCardFragment("First card","This is the text of the first card")));
+        rows.add(new Row(createCardFragment("First card","This is the text of the first card == Here we can put the page details that is contained in a new page. This will be showed swipong to left == Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left")));
         rows.add(new Row(CustomPageFragment.getInstance("Second card", "This is a custom page used in the app", R.mipmap.ic_launcher)));
         rows.add(new Row(CustomPageFragment.getInstance("Third card", "This is a custom page used in the app", R.mipmap.ic_launcher),
-                         CustomPageFragment.getInstance("Page details","Here we can put the page details that is contained in a new page. This will be showed swipong to left",R.mipmap.ic_launcher)));
+                         CustomPageFragment.getInstance("Page details","Here we can put the page details that is contained in a new page. This will be showed swipong to left == Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left Here we can put the page details that is contained in a new page. This will be showed swipong to left",R.mipmap.ic_launcher)));
     }
 
 

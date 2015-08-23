@@ -6,7 +6,10 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -32,11 +35,14 @@ public class CustomPageFragment extends Fragment {
 
         String title = getArguments().getString(Constants.TITLE);
         String text = getArguments().getString(Constants.TEXT);
+        int drawableId = getArguments().getInt(Constants.DRAWABLEID);
 
         TextView tvTitle = (TextView)view.findViewById(R.id.title);
         TextView tvText = (TextView)view.findViewById(R.id.text);
+        ImageView imgView = (ImageView)view.findViewById(R.id.img);
         tvTitle.setText(title);
         tvText.setText(text);
+        Picasso.with(getActivity()).load(drawableId).into(imgView);
 
 
         return view;
