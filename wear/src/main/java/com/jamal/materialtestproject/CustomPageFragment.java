@@ -44,7 +44,6 @@ public class CustomPageFragment extends Fragment {
         tvText.setText(text);
         Picasso.with(getActivity()).load(drawableId).into(imgView);
 
-
         return view;
     }
 }
