@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.jamal.materialtestproject.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -63,7 +64,12 @@ public class ScreenShootFragment extends BaseFragment{
             }
         });
 
-        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.img1);
+        Picasso.with(getActivity()).load(R.drawable.img1).resize(1200, 700).into(imageView);
+        Picasso.with(getActivity()).load(R.drawable.img2).resize(1200, 700).into(imageView2);
+        Picasso.with(getActivity()).load(R.drawable.img3).resize(1200, 700).into(imageView3);
+        Picasso.with(getActivity()).load(R.drawable.img4).resize(1200, 700).into(imageView4);
+        Picasso.with(getActivity()).load(R.drawable.img5).resize(1200, 700).into(imageView5);
+        /*Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.img1);
         imageView.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
         bm.recycle();
         bm = BitmapFactory.decodeResource(getResources(), R.drawable.img2);
@@ -77,7 +83,7 @@ public class ScreenShootFragment extends BaseFragment{
         bm.recycle();
         bm = BitmapFactory.decodeResource(getResources(), R.drawable.img5);
         imageView5.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();
+        bm.recycle();*/
 
         /*Matrix matrix = new Matrix();
         imageView.setScaleType(ImageView.ScaleType.MATRIX);   //required
