@@ -3,6 +3,7 @@ package com.jamal.materialtestproject.Fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -62,35 +63,9 @@ public class ExampleFragment extends BaseFragment {
         floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, getString(R.string.snackbar_example), Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, getString(R.string.snackbar_example), Snackbar.LENGTH_SHORT)
                         .setAction("Action1", null)
-                        .setAction("Action2", null).show();*/
-
-                rootview.setDrawingCacheEnabled(true);
-                rootview.buildDrawingCache(true);
-                Bitmap b = Bitmap.createBitmap(rootview.getDrawingCache());
-                rootview.setDrawingCacheEnabled(false);
-                recyclerView.setVisibility(View.GONE);
-                img.setImageBitmap(b);
-                String root = Environment.getExternalStorageDirectory().toString();
-                File myDir = new File(root + "/my_yam_images");
-                myDir.mkdirs();
-                Random generator = new Random();
-                int n = 10000;
-                n = generator.nextInt(n);
-                String fname = "Image-" + n + ".jpg";
-                File file = new File(myDir, fname);
-                Log.i(TAG, "" + file);
-                if (file.exists())
-                    file.delete();
-                try {
-                    FileOutputStream out = new FileOutputStream(file);
-                    b.compress(Bitmap.CompressFormat.JPEG, 90, out);
-                    out.flush();
-                    out.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                        .setAction("Action2", null).show();
             }
         });
 

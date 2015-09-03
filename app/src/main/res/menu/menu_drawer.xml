@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_dashboard"
             android:title="@string/Home"/>
         <item
-            android:id="@+id/nav_events"
+            android:id="@+id/nav_screen"
             android:icon="@drawable/ic_event"
-            android:title="@string/Events" />
+            android:title="@string/Screen" />
         <item
             android:id="@+id/nav_music"
             android:icon="@drawable/ic_headset"

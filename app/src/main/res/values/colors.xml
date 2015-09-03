@@ -15,4 +15,6 @@
 
     <color name="baseBackgroundColor">#F5F5F5</color>
 
+    <color name="gray_1">#41727272</color>
+
 </resources>
