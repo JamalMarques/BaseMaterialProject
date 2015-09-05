@@ -5,13 +5,19 @@
     android:layout_height="match_parent"
     android:gravity="center|bottom">
 
+    <android.support.wearable.view.CardFrame
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/cardframe">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="5dp"
-        android:gravity="left"
-        android:background="@drawable/shape">
+        android:gravity="left">
+        <!--android:background="@drawable/shape">-->
+
+        <!--android:layout_marginTop="5dp"-->
 
         <TextView
             android:id="@+id/title"
@@ -34,5 +40,8 @@
 
 
     </LinearLayout>
+
+    </android.support.wearable.view.CardFrame>
+
 
 </LinearLayout>

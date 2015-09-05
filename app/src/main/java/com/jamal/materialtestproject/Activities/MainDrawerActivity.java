@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jamal.materialtestproject.Fragments.ExampleFragment;
+import com.jamal.materialtestproject.Fragments.ScreenShootFragment;
 import com.jamal.materialtestproject.R;
 
 
@@ -50,6 +51,11 @@ public class MainDrawerActivity extends MasterActivity {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.nav_screen:
+                        changeFragment(ScreenShootFragment.getInstance(),ScreenShootFragment.TAG,false);
+                        break;
+                }
                 menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
                 return true;

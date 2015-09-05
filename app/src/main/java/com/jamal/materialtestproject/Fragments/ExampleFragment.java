@@ -2,16 +2,21 @@ package com.jamal.materialtestproject.Fragments;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -21,8 +26,14 @@ import com.jamal.materialtestproject.Listeners.RecyclerViewListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
 import com.jamal.materialtestproject.Others.Constants;
 import com.jamal.materialtestproject.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ExampleFragment extends BaseFragment {
 
@@ -30,7 +41,8 @@ public class ExampleFragment extends BaseFragment {
     private FloatingActionButton floatingButton;
     private RecyclerView recyclerView;
     private ArrayList<SmartPhone> smartPhonesList;
-
+    private View rootview;
+    private ImageView img;
 
     public String getFragmentTag(){
         return TAG;
@@ -44,6 +56,7 @@ public class ExampleFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_example, container, false);
+        rootview = view;
 
         //Do stuffs
         floatingButton = (FloatingActionButton)view.findViewById(R.id.floating_button);
@@ -57,6 +70,8 @@ public class ExampleFragment extends BaseFragment {
         });
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("hellohello");
+
+        img = (ImageView)view.findViewById(R.id.img);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerList);
         recyclerView.setHasFixedSize(true);
