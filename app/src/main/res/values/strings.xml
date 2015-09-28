@@ -12,6 +12,8 @@
     <string name="Discussion">Discussion</string>
     <string name="snackbar_example">This is a snackbar example</string>
     <string name="title_activity_device_detail">DeviceDetailActivity</string>
+    <string name="title_activity_device_detail2">DeviceDetailActivity2</string>
+    <string name="transition_photo">transition_photo</string>
 
 
 </resources>

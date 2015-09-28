@@ -52,6 +52,13 @@ public class MainDrawerActivity extends MasterActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
+
+                    case R.id.nav_home:
+                        if(!getSupportFragmentManager().findFragmentByTag(ExampleFragment.TAG).isVisible()){
+                         changeFragment(ExampleFragment.getInstance(),ExampleFragment.TAG,false);
+                        }
+                        break;
+
                     case R.id.nav_screen:
                         changeFragment(ScreenShootFragment.getInstance(),ScreenShootFragment.TAG,false);
                         break;

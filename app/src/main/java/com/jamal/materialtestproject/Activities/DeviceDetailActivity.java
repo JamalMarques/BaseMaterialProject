@@ -52,8 +52,7 @@ public class DeviceDetailActivity extends MasterActivity {
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(device.getModel());
 
         imag = (ImageView)findViewById(R.id.backimg);
@@ -124,7 +123,7 @@ public class DeviceDetailActivity extends MasterActivity {
         int id = item.getItemId();
         switch (id){
             case android.R.id.home:
-                finish();
+                onBackPressed();
                 break;
         }
 

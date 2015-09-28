@@ -1,9 +1,11 @@
 package com.jamal.materialtestproject.Fragments;
 
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.jamal.materialtestproject.Activities.DeviceDetailActivity;
+import com.jamal.materialtestproject.Activities.DeviceDetailActivity2;
 import com.jamal.materialtestproject.Adapters.SmartphonesAdapter;
 import com.jamal.materialtestproject.Listeners.RecyclerViewListener;
 import com.jamal.materialtestproject.Models.SmartPhone;
@@ -84,9 +87,16 @@ public class ExampleFragment extends BaseFragment {
         adapter.setRecyclerListener(new RecyclerViewListener() {
             @Override
             public void recyclerViewItemClicked(View v, int position) {
-                Intent intent = new Intent(getActivity(), DeviceDetailActivity.class);
+
+                Intent intent = new Intent(getActivity(), DeviceDetailActivity2.class);
                 intent.putExtra(Constants.JSON_DEVICE,new Gson().toJson(smartPhonesList.get(position)));
-                startActivity(intent);
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ImageView imgShared = (ImageView)v.findViewById(R.id.img);
+                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(getActivity(),imgShared,imgShared.getTransitionName()).toBundle();
+                    getActivity().startActivity(intent,bundle);
+                }else{
+                    startActivity(intent);
+                }
             }
         });
         recyclerView.setAdapter(adapter);
@@ -102,7 +112,6 @@ public class ExampleFragment extends BaseFragment {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 int position = viewHolder.getAdapterPosition();
                 adapter.removeItem(position);
-                //Toast.makeText(getActivity(),"swiped!",Toast.LENGTH_SHORT).show();
             }
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
