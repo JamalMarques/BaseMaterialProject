@@ -45,6 +45,7 @@ public class MainDrawerActivity extends MasterActivity {
         ExampleFragment exFragment = ExampleFragment.getInstance();
         changeFragment(exFragment, exFragment.getFragmentTag(),false);
 
+        //test
     }
 
     private void setUpDrawContent(NavigationView navView){
