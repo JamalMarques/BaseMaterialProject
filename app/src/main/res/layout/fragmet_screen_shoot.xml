@@ -1,74 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_1"
-    android:gravity="center">
+    android:background="@color/gray_1">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="0.1"
-        android:layout_margin="10dp"
-        android:background="#47bbb8b8"
-        android:id="@+id/photo_layout">
+        android:id="@+id/scrollView"
+        android:visibility="gone">
 
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView"
-            android:layout_marginLeft="29dp"
-            android:layout_marginStart="29dp"
-            android:layout_marginTop="19dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:layout_margin="10dp"
+            android:background="#47bbb8b8"
+            android:id="@+id/photo_layout">
 
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView2"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="40dp" />
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView"
+                android:layout_marginLeft="29dp"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="19dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView3"
-            android:layout_below="@+id/imageView"
-            android:layout_alignLeft="@+id/imageView"
-            android:layout_alignStart="@+id/imageView"
-            android:layout_marginTop="19dp" />
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView2"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="28dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginTop="40dp" />
 
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView4"
-            android:layout_below="@+id/imageView3"
-            android:layout_alignLeft="@+id/imageView2"
-            android:layout_alignStart="@+id/imageView2" />
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView3"
+                android:layout_below="@+id/imageView"
+                android:layout_alignLeft="@+id/imageView"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_marginTop="19dp" />
 
-        <ImageView
-            android:layout_width="170dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView5"
-            android:layout_below="@+id/imageView4"
-            android:layout_alignLeft="@+id/imageView3"
-            android:layout_alignStart="@+id/imageView3"
-            android:rotation="-40" />
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView4"
+                android:layout_below="@+id/imageView3"
+                android:layout_alignLeft="@+id/imageView2"
+                android:layout_alignStart="@+id/imageView2" />
 
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView5"
+                android:layout_below="@+id/imageView4"
+                android:layout_alignLeft="@+id/imageView3"
+                android:layout_alignStart="@+id/imageView3"
+                android:rotation="-40" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/imageView5">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button6" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button7" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button8" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button9" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button10" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button11" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button12" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button13" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button14" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#FFFFFF"
+        android:visibility="gone">
 
         <Button
             android:layout_width="wrap_content"
@@ -76,4 +149,20 @@
             android:text="Shoot It!"
             android:id="@+id/b_shoot" />
     </LinearLayout>
-</LinearLayout>
+
+    <com.jamal.materialtestproject.CollageViews.CollageView
+        android:id="@+id/collageView1"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <com.jamal.materialtestproject.CollageViews.CollageView
+        android:id="@+id/collageView2"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+
+</RelativeLayout>

@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.jamal.materialtestproject.CollageViews.CollageView;
+import com.jamal.materialtestproject.CollageViews.MultiTouchListener;
 import com.jamal.materialtestproject.R;
 import com.squareup.picasso.Picasso;
 
@@ -36,6 +38,8 @@ public class ScreenShootFragment extends BaseFragment{
     private Button shootItButton;
     private RelativeLayout shootLayout;
 
+    private CollageView collageImg1,collageImg2;
+
     @Override
     public String getFragmentTag() {
         return TAG;
@@ -50,7 +54,17 @@ public class ScreenShootFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragmet_screen_shoot, container, false);
 
-        shootLayout = (RelativeLayout)rootview.findViewById(R.id.photo_layout);
+        collageImg1 = (CollageView)rootview.findViewById(R.id.collageView1);
+        collageImg2 = (CollageView)rootview.findViewById(R.id.collageView2);
+        Picasso.with(getActivity()).load(R.drawable.img1).resize(1200, 700).into(collageImg1);
+        Picasso.with(getActivity()).load(R.drawable.img2).resize(1200, 700).into(collageImg2);
+
+        MultiTouchListener multiTouchListenerNotScaled = new MultiTouchListener();
+        multiTouchListenerNotScaled.isScaleEnabled = false;
+        collageImg1.setOnTouchListener(multiTouchListenerNotScaled);
+        collageImg2.setOnTouchListener(new MultiTouchListener());
+
+        /*shootLayout = (RelativeLayout)rootview.findViewById(R.id.photo_layout);
         imageView = (ImageView)rootview.findViewById(R.id.imageView);
         imageView2 = (ImageView)rootview.findViewById(R.id.imageView2);
         imageView3 = (ImageView)rootview.findViewById(R.id.imageView3);
@@ -68,28 +82,7 @@ public class ScreenShootFragment extends BaseFragment{
         Picasso.with(getActivity()).load(R.drawable.img2).resize(1200, 700).into(imageView2);
         Picasso.with(getActivity()).load(R.drawable.img3).resize(1200, 700).into(imageView3);
         Picasso.with(getActivity()).load(R.drawable.img4).resize(1200, 700).into(imageView4);
-        Picasso.with(getActivity()).load(R.drawable.img5).resize(1200, 700).into(imageView5);
-        /*Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.img1);
-        imageView.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();
-        bm = BitmapFactory.decodeResource(getResources(), R.drawable.img2);
-        imageView2.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();
-        bm = BitmapFactory.decodeResource(getResources(), R.drawable.img3);
-        imageView3.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();
-        bm = BitmapFactory.decodeResource(getResources(), R.drawable.img4);
-        imageView4.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();
-        bm = BitmapFactory.decodeResource(getResources(), R.drawable.img5);
-        imageView5.setImageBitmap(Bitmap.createScaledBitmap(bm, 2000, 1300, true));
-        bm.recycle();*/
-
-        /*Matrix matrix = new Matrix();
-        imageView.setScaleType(ImageView.ScaleType.MATRIX);   //required
-        matrix.postRotate((float) 80, imageView.getWidth()/2, imageView.getHeight()/2);
-        imageView.setImageMatrix(matrix);*/
-
+        Picasso.with(getActivity()).load(R.drawable.img5).resize(1200, 700).into(imageView5);*/
 
         return rootview;
     }

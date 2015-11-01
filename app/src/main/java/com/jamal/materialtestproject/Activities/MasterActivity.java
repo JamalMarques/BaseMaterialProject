@@ -9,4 +9,8 @@ import android.support.v7.widget.Toolbar;
  */
 public abstract class MasterActivity extends AppCompatActivity {
     public abstract void changeFragment(Fragment fragment,String tag,boolean addToBackStack);
+
+    public MasterActivity getMasterActivity(){
+        return this;
+    }
 }
